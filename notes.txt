@@ -1,0 +1,10 @@
+>	Wordpress Install
+	>	Download
+	>	Connect DB
+	>	Authentication Unique Keys and Salts - Visit link in comment
+	>	Prefixes - change wp_ prefix to randomword_
+	>	Permalinks
+
+>	Theme Unit Test
+	>	Tests theme functionality
+	>	Tools - Import File - Check Download and Import box for dummy content
