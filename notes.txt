@@ -8,3 +8,125 @@
 >	Theme Unit Test
 	>	Tests theme functionality
 	>	Tools - Import File - Check Download and Import box for dummy content
+
+
+>	Abstract Thinking
+	>	"Type of content" rather than "actual content" 
+	>	no hard-coded content
+>	Planning
+	>	Design/Wireframe each unique view to wireframe fidelity
+>	Start with the most Common "views"
+	>	Save Home for last
+
+>	Building a theme
+	>	Theme will not show up broken if naming conventions not followed
+	1.	Style.css
+		>	CSS Comment holds meta info about theme
+			>	Allows WP to understand theme details
+			>	No comment, wp won't recognize theme
+			>	Name is bare minimum
+			>	screenshot.png will be the themes thumbnail
+			/*
+			Theme Name: Scratch
+			Theme URI: http://scratchtheme.com/
+			Description:A bare bones starting point.
+			Author: Melissa Cabral(wordpress.org username)
+			Author URI: http://melissacabral.com/
+			Version: 1.0
+			Tags: black, blue, white, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post editor-style, custom-menu  
+
+			License: GPLv3
+			License URI: license.txt
+
+			General comments can go here too
+			*/
+
+	>	Template Parts
+		>	Template Parts
+				files that make up the pieces of a page (header, footer, sidebar)
+			>	Store files directly within wordpress content
+			>	Use template tag functions to call files
+					https://docs.google.com/presentation/d/1JOaiGoPmCF8CMDS25ZEdluxeYA8aMG2_hKP3ac6zRW4/edit#slide=id.i70
+					http://codex.wordpress.org/Template_Tags
+		>	Include tags
+				make it easy to place these in your template files
+
+	>	bloginfo()
+		Displays site info, gathered under info supplied in User Profile and General Options
+		Automatically echo value provided
+			https://docs.google.com/presentation/d/1JOaiGoPmCF8CMDS25ZEdluxeYA8aMG2_hKP3ac6zRW4/edit#slide=id.i76
+			http://codex.wordpress.org/Function_Reference/bloginfo
+	>	Directory Link URLs
+
+		home_url()      http://www.example.com 
+		site_url()         http://www.example.com  
+		admin_url()     http://www.example.com/wp-admin  
+		includes_url()  http://www.example.com/wp-includes  
+		content_url()   http://www.example.com/wp-content 
+		plugins_url()  http://www.example.com/wp-content/plugins wp_upload_dir()  http://www.example.com/wp-content/uploads
+
+
+
+
+
+	>	Query String - Wordpress has its own query string abreviations for user activity
+		>	Queries the database for the right content
+		>	Happens automatically
+		>	Only have to check and loop the query
+
+	>	The Loop
+
+		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			the stuff that you put here will loop as many times as there are posts available
+		<?php endwhile: else: ?>
+			fall back if there are no posts to display
+		<?php endif; ?>
+
+	>	Post Template Tags - used in the loop
+
+		the_ID()              Displays the ID number of the current post
+
+		the_permalink()  		 Displays the link to the 'single' version of this post
+
+		the_title()           Displays the title of this post
+
+		the_content()      	 Displays the content of this post
+
+		the_excerpt()     	 Displays a shortened version of the content
+
+		the_category()    	 Displays list of categories this post is in 
+
+		the_tags()            Displays the tags this post has been given
+		 
+		the_author()          Displays the name of the author of the post.
+
+
+
+
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+  <article id="post-ID" class="post">
+    <h2 class="entry-title"> 
+        <a href="SINGLE_POST_URL"> 
+          POST TITLE 
+        </a>
+      </h2>
+    <div class="entry-content">
+      <p>POST CONTENT HERE A short portion of the post content. Etiam posuere adipiscing ante a euismod. Aliquam rutrum tempus ipsum a pulvinar. Cras arcu tellus, aliquam ac rutrum sit amet, consectetur et sapien. [...]</p>
+    </div>
+    <div class="postmeta">
+      <span class="author"> Posted by: USERNAME </span>
+      <span class="date"> DATE </span>
+      <span class="num-comments"> X COMMENTS </span>
+      <span class="categories"> 
+          <a href="#" title="View all posts in Updates" >
+            CATEGORY NAME
+          </a>
+        </span>
+      <span class="tags">TAG, TAG, TAG</span>
+    </div>
+    <!-- end postmeta -->
+  </article><!-- end post -->
+<?php endwhile; else: ?>
+  <h2>Oooops</h2>
+  <p>sorry, no posts we're found</p>
+<?php endif; ?>

@@ -1,0 +1,58 @@
+/*
+Theme Name: Basic Starter
+Author: Christian Saldarriaga
+Description: The Basic Starter theme designed in Melissa Cabral's wordpress class Platt College
+License: GPLv3
+Version: 0.1
+*/
+body {
+  max-width: 60em;
+  margin: 0 auto;
+  font-family: sans-serif;
+  background-color: lightslategray;
+}
+
+#header,
+#footer,
+#content,
+#sidebar {
+  padding: 2%;
+  box-sizing: border-box;
+}
+
+#tags a{
+	display: inline-block;
+	background-color: darkslategray;
+	color: white;
+	padding:.25rem .5rem;
+	border-radius: .5rem;
+	margin: .1rem .05rem;
+	text-decoration: none;
+	border:solid 1px transparent;
+}
+#tags a:hover{
+	border:solid 1px darkslategray;
+	background-color: slategray;
+}
+
+@media screen and (min-width:600px) {
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+  .nav li {
+    display: inline-block;
+  }
+  #content {
+    float: left;
+    width: 70%;
+  }
+  #sidebar {
+    float: right;
+    width: 30%;
+  }
+  #footer {
+    clear: both;
+  }
+}
