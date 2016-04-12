@@ -130,3 +130,85 @@
   <h2>Oooops</h2>
   <p>sorry, no posts we're found</p>
 <?php endif; ?>
+
+
+> Day 3
+
+Planning
+	Repeatable Areas - Footers, headers, sidebars
+		>	What pages/sections need to be different
+	Flexibility - Long titles, many tags
+	Map Core Wordpress Functionality  
+	All content should be dynamic
+
+Out of the Box
+	Search
+	Parent Child page relationships
+	Comments
+	Gravitar
+	Rss 
+	Pagination
+	Image Resizing
+	Admin
+
+Info Architecture
+	Not about individual pages
+	Focused on unique layout types
+
+Wireframe/Comps
+	Consider which features of wordpress will handle each type of content area on the page
+
+Template Hierarchy
+	Theme may contain as many templates that index doesn't satisfy
+	Control markup and content display of the different views of your site
+
+Design Friendly Functionality
+	Classes
+		body_class()
+		<body <?php body_class(); ?>> 
+		 
+		post_class()
+		<article <?php post_class( 'my-class' ); ?>>  
+		 
+		sticky_class()
+		<article <?php sticky_class(); ?>> 
+
+
+	When viewing a page (in this case page ID 2), the body tag will look something like this:
+
+	<body class="page page-id-2 page-template page-template-default logged-in">
+	 
+	If you wanted to write a style that affected all pages (but not blog posts, search results, archives, etc.), begin your selector with: 
+	.page 
+	 
+	To style only this page, begin your selector:
+	.page-id-2
+
+	To style all pageviews when a user is logged in, begin with:
+	.logged-in
+
+
+
+	showing the published post with an ID of 25 that is in the notes category : 
+	<div class="post-25 type-post category-4 category-notes status-publish hentry">
+	 
+	showing the published page with an ID of 687:
+	<div class="post-687 page type-page status-publish hentry">
+	 
+	*hentry is the hAtom compliant way to class a single piece of content... in case you were curious. 
+	*hentry is a good way to style all posts and pages
+
+
+Navigation
+	when viewing any page, WP automatically adds the classes
+
+	.current_page_item  or  .current_page_parent
+
+
+Image Sizing
+	Set up sizes once wireframes are done
+	past uploads will not change size when new settings are saved
+		Plugin: regenerate thumbnails
+	Need more than 3 img sizes
+		add_image_size() in functions.php
+	
