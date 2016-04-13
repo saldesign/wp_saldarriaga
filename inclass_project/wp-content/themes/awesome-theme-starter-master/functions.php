@@ -3,12 +3,12 @@
 //Wordpress will automatically load it before all template files
 
 //activate "sleeping features"
+	// turns on featured image
+	add_theme_support('post-thumbnails');
 
-add_theme_support('post-thumbnails');// turns on featured image
-
-//special image size for the front page banner
-//						name 			  w    h   crop?
-add_image_size( 'big-banner', 1050, 300, true );
+	//special image size for the front page banner
+	//						name 			  w    h   crop?
+	add_image_size( 'big-banner', 1050, 300, true );
 
 
 
