@@ -15,7 +15,7 @@
 			<div class="entry-content">
 				<?php //if viewing single/page show full content
 						//else show excerpt
-				if(is_singular( )){
+				if(is_singular( ) OR has_post_format('video' )){
 					the_content( );
 				}else{	 
 					the_excerpt();

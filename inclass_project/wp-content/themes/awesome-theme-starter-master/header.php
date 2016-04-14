@@ -3,7 +3,6 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width" />
-	<title><?php bloginfo('name'); ?> - <?php bloginfo('description'); ?></title>
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/styles/reset.css" />
@@ -23,6 +22,12 @@
 				</a>
 			</h1>
 			<h2 class="site-description"> <?php bloginfo('description'); ?> </h2>
+			<?php 
+			if(function_exists('the_custom_logo')){
+				//add theme support
+				the_custom_logo(); 
+			}
+			 ?>	
 			<nav>
 				<ul class="nav">
 					<?php wp_list_pages( array(

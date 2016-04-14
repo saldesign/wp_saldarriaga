@@ -941,6 +941,9 @@ blockquote:before{
 .format-quote .hentry {
 	width:100%;
 }
+.format-video {
+	background-color: darkslategray;
+}
 /* 
 ==Gallery
 */

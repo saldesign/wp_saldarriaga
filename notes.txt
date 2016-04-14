@@ -212,3 +212,18 @@ Image Sizing
 	Need more than 3 img sizes
 		add_image_size() in functions.php
 	
+
+> Functions
+
+Look and feel - Functions.php
+	should not be needed for the functionality of the theme
+Content - Use Plugin
+	Shortcodes, custom post types, taxonomies
+
+
+
+> Hooks
+	Action
+		Trigger functions
+	Filters	
+		functions change output
