@@ -55,7 +55,7 @@ add_filter('excerpt_more', 'awesome_readmore' );
  * Make threaded comment replies more user friendly
  */
 function awesome_comment_ux(){
-	if(is_singular( )){
+	if(is_singular() && get_option('thread_comments') && comments_open()){
 		wp_enqueue_script('comment-reply' );
 	}
 }
