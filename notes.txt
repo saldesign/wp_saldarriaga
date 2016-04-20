@@ -227,3 +227,63 @@ Content - Use Plugin
 		Trigger functions
 	Filters	
 		functions change output
+
+
+
+		>>>	Custom Post Types
+
+			1	register_post_type()
+				functions.php
+
+					add_action( 'init', 'custom_create_post_type' ); 
+					 
+					function custom_create_post_type() { 
+					      register_post_type( 'product', array(
+					            'labels'      => array( 
+					                  'name'          => 'Products' ,
+					                  'singular_name' => 'Product' , 
+					            'public'      => true,
+					            'has_archive' => true) ); 
+					   }
+
+				Multiple Post Types
+
+					add_action( 'init', 'custom_create_post_type' ); 
+					 
+					function custom_create_post_type() { 
+					      register_post_type( 'product', array(
+					            'labels'      => array( 
+					                  'name'          => 'Products' ,
+					                  'singular_name' => 'Product' , 
+					            'public'      => true,
+					            'has_archive' => true
+					      ) ); 
+					      register_post_type( 'testimonial', array(
+					            'labels'      => array( 
+					                  'name'          => 'Testimonials' ,
+					                  'singular_name' => 'Testimonial' , 
+					            'public'      => true,
+					            'has_archive' => true
+					      ) ); 
+					   
+					   }
+
+
+				Add Support
+					Add this argument to the register_post_type() array.
+
+					'supports'  => array( 'title', 'editor', 'author',
+					          'thumbnail', 'excerpt', 'comments' ),
+
+
+				404 not found
+					You should "flush" the permalink settings once when activating the custom post type. Include this in your plugin file:
+
+					function my_rewrite_flush() {
+					    custom_create_post_type();
+					    flush_rewrite_rules();
+					}
+					register_activation_hook( __FILE__, 'my_rewrite_flush' );
+
+
+
