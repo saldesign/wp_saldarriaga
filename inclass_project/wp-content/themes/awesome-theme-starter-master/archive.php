@@ -4,38 +4,43 @@
 	<?php //THE LOOP
 		if( have_posts() ): ?>
 
-		<h2 class="archive-title"><?php 
-		if(is_category()){
-			echo 'Posts by Category: ';
-			single_cat_title( );
-		}elseif(is_date()){
-			the_archive_title();
-		}elseif(is_tag()){
-			echo 'Posts Tagged: ';
-			single_term_title( );
-		}else{
-			echo 'Posts Archive';
-		}
+		<h2 class="archive-title">
+			<?php 
+			//what kind of archive is this?
+			if( is_category() ){
+				echo 'Posts in the Category: ';
+				single_cat_title();
+			}elseif( is_tag() ){
+				echo 'Posts tagged: ';
+				single_term_title();
+			}elseif( is_date() ){
+				the_archive_title();
+			}else{
+				echo 'Post Archive';
+			}
 
-		 ?></h2>
+			?>	
+		</h2>
 
 		<?php while( have_posts() ): the_post(); ?>
 
-		<article <?php post_class('cf' ); ?>id="post-<?php the_ID(); ?>" >
+		<article id="post-<?php the_ID(); ?>" 
+		<?php post_class('cf clearfix'); ?>>
 			<h2 class="entry-title"> 
 				<a href="<?php the_permalink(); ?>"> 
 					<?php the_title(); ?> 
 				</a>
 			</h2>
-			<?php the_post_thumbnail('medium' ); ?>
+			<?php the_post_thumbnail('thumbnail'); //don't forget to activate in functions ?>
 			<div class="entry-content">
-				<?php //if viewing single/page show full content
-						//else show excerpt
-				if(is_singular( )){
-					the_content( );
-				}else{	 
+				<?php 
+				//if viewing a single post or page, show full content. otherwise, show the short content (excerpt)
+				if( is_singular() ){
+					the_content();
+				}else{
 					the_excerpt();
-				} ?>
+				}
+				 ?>
 			</div>
 			<div class="postmeta"> 
 				<span class="author"> Posted by: <?php the_author(); ?></span>
@@ -47,8 +52,11 @@
 		</article><!-- end post -->
 
 		<?php endwhile; ?>
-	<?php awesome_pagination(); ?>
+
+		<?php awesome_pagination(); ?>
+
 	<?php else: ?>
+
 	<h2>Sorry, no posts found</h2>
 	<p>Try using the search bar instead</p>
 
@@ -56,5 +64,5 @@
 
 </main><!-- end #content -->
 
-<?php get_sidebar(); //include sidebar.php ?>
+<?php get_sidebar('shop'); //include sidebar.php ?>
 <?php get_footer(); //include footer.php ?>

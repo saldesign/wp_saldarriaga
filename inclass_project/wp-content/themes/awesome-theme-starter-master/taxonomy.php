@@ -4,7 +4,7 @@
 	<?php //THE LOOP
 		if( have_posts() ): ?>
 
-		<h2 class="archive-title">All Products</h2>
+		<h2 class="archive-title">All Products by <?php single_term_title( ); ?></h2>
 
 		<?php while( have_posts() ): the_post(); ?>
 
@@ -18,9 +18,7 @@
 					<?php the_title(); ?> 
 				</a>
 			</h2>
-			<?php the_terms($post->ID, 'dietarypref', '<h3>Preference:', ', ', '</h3>'  ); ?>
 
-			<?php the_terms($post->ID, 'brand', '<h3>Brand:', ', ', '</h3>'  ); ?>
 
 			<div class="entry-content">
 				<?php //if viewing single/page show full content
