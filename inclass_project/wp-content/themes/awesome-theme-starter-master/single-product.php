@@ -16,10 +16,13 @@
 			</h2>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 			<?php the_terms( $post->ID, 'brand', '<h3>Brand: ', ', ' , '</h3>' ); ?>
 
 			<?php the_post_thumbnail('large', array( 'class' => 'product-image' )); ?>
 =======
+=======
+>>>>>>> origin/master
 			<?php the_terms($post->ID, 'dietarypref', '<h3>Preference:', ', ', '</h3>'  ); ?>
 			<?php the_terms($post->ID, 'brand', '<h3>Brand:', ', ', '</h3>'  ); ?>
 

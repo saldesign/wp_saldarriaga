@@ -1,6 +1,7 @@
 <aside id="sidebar">
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<?php 
 	//guide the user back to the shop if they have filtered by taxonomy term
 	if( is_tax() ){ ?>
@@ -33,6 +34,8 @@
 	</section>
 </aside>
 =======
+=======
+>>>>>>> origin/master
 <?php //direct user back to the shop if they hav filtered by taxonomy term
  if(is_tax()){ ?>
 	<section class="widget">
@@ -61,5 +64,9 @@
 		</section>
 
 
+<<<<<<< HEAD
+	</aside>
+>>>>>>> origin/master
+=======
 	</aside>
 >>>>>>> origin/master

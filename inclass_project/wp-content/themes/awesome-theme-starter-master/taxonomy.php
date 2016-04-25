@@ -5,6 +5,7 @@
 		if( have_posts() ): ?>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		<h2 class="archive-title">
 			All Products by <?php single_term_title(); ?>
 		</h2>
@@ -20,6 +21,8 @@
 			</a>
 
 =======
+=======
+>>>>>>> origin/master
 		<h2 class="archive-title">All Products by <?php single_term_title( ); ?></h2>
 
 		<?php while( have_posts() ): the_post(); ?>
@@ -29,6 +32,9 @@
 			<a href="<?php the_permalink(); ?>">
 				<?php the_post_thumbnail('medium' ); ?>
 			</a>	
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 			<h2 class="entry-title"> 
 				<a href="<?php the_permalink(); ?>"> 
@@ -36,6 +42,7 @@
 				</a>
 			</h2>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 			<?php the_terms( $post->ID, 'brand', '<h3>Brand: ', ', ' , '</h3>' ); ?>
 
@@ -66,6 +73,8 @@
 	<?php else: ?>
 
 =======
+=======
+>>>>>>> origin/master
 
 			<div class="entry-content">
 				<?php //if viewing single/page show full content
@@ -87,6 +96,9 @@
 		<?php endwhile; ?>
 	<?php awesome_pagination(); ?>
 	<?php else: ?>
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 	<h2>Sorry, no posts found</h2>
 	<p>Try using the search bar instead</p>
@@ -96,7 +108,11 @@
 </main><!-- end #content -->
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php get_sidebar('shop'); //include sidebar-shop.php ?>
+=======
+<?php get_sidebar('shop'); //include sidebar.php ?>
+>>>>>>> origin/master
 =======
 <?php get_sidebar('shop'); //include sidebar.php ?>
 >>>>>>> origin/master
