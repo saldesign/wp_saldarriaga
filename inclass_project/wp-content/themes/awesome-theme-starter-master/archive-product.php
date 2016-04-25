@@ -23,20 +23,8 @@
 					<?php the_title(); ?> 
 				</a>
 			</h2>
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 			<?php the_terms( $post->ID, 'brand', '<h3>Brand: ', ', ' , '</h3>' ); ?>
-=======
-			<?php the_terms($post->ID, 'dietarypref', '<h3>Preference:', ', ', '</h3>'  ); ?>
-
-			<?php the_terms($post->ID, 'brand', '<h3>Brand:', ', ', '</h3>'  ); ?>
->>>>>>> origin/master
-=======
-			<?php the_terms($post->ID, 'dietarypref', '<h3>Preference:', ', ', '</h3>'  ); ?>
-
-			<?php the_terms($post->ID, 'brand', '<h3>Brand:', ', ', '</h3>'  ); ?>
->>>>>>> origin/master
 
 			<div class="entry-content">
 				<?php 
@@ -71,13 +59,5 @@
 
 </main><!-- end #content -->
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 <?php get_sidebar('shop'); //include sidebar-shop.php ?>
-=======
-<?php get_sidebar('shop'); //include sidebar.php ?>
->>>>>>> origin/master
-=======
-<?php get_sidebar('shop'); //include sidebar.php ?>
->>>>>>> origin/master
 <?php get_footer(); //include footer.php ?>

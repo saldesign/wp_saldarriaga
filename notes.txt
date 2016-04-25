@@ -287,3 +287,96 @@ Content - Use Plugin
 
 
 
+
+
+
+
+
+
+> MidTerm Review
+
+local Dev
+	faster
+	safer
+	no seo polution
+
+Install Steps
+	1	Wp.org DL
+	2	Make blank DB
+	3	Wp Config
+	4	View in browser
+
+Permalink - links to any piece of content
+	change from using query string structure to human readable 
+	Wordpress modifies htaccess to create pretty permalinks
+
+
+Automatic Wordpress Brain
+	Template System - Applies correct template based on information requested
+	Query System - Queries the information from the request	
+
+Theme Unit Test
+	Xml Data
+	List of Tests
+
+The Loop
+	Displays the queried posts
+	
+Post Tags
+	the_id()
+	post_class()
+	the_permalink()
+	the_title()
+
+Includes
+	get_sidebar()
+	get_searchform()
+	comments_template()
+	get_template_part('firstpart', 'secondpart')  include anything firstpart-secondpart.php
+
+if(is_admin)
+	checks to see if the user is looking at admin panel
+
+functions.php
+	optional
+	theme root
+	turn on sleeping features
+	uses hooks
+	custom functions
+
+	no close - will result in white screen of death
+
+hooks
+	Action
+		Trigger functions
+	Filters	
+		functions change output
+
+Plugins vs Functions
+	Look & Feel or Functionality
+
+Widget areas = dynamic_sidebar
+	1	functions.php - register sidebar
+	2	display in template
+	3	admin drag and drop widgets into widget area
+
+Menus
+	1	functions.php - register menu
+	2	display in template
+	3	admin drag and drop menu items
+
+post types
+	1	Post
+	2	Page
+	3	Revision
+	4	Attachment
+	5	Nav Menu Item
+
+taxonomy						terms
+	1	category 				categories
+	2	tags 						tbt
+
+
+theme heirarchy diagaram
+	first file wordpress looks for is home.php
+	

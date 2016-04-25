@@ -1280,19 +1280,19 @@ RSS Feed Image
 	margin-left:1em;
 }
 .tax-brand #sidebar .widget,
-.tax-dietarypref #sidebar .widget,
+.tax-feature #sidebar .widget,
 .post-type-archive-product #sidebar .widget{
 	margin: 0 5% 7%  0;
 }
 .tax-brand #sidebar .widget-title,
-.tax-dietarypref #sidebar .widget-title,
+.tax-feature #sidebar .widget-title,
 .post-type-archive-product #sidebar .widget-title{
 	padding-top:10px;
 	margin-bottom: 0;
 	font-size:1.2em;
 }
 .tax-brand #sidebar .widget-title:before,
-.tax-dietarypref #sidebar .widget-title:before,
+.tax-feature #sidebar .widget-title:before,
 .post-type-archive-product #sidebar .widget-title:before{
 	display: none;
 }
@@ -1307,7 +1307,7 @@ RSS Feed Image
 }
 .post-type-archive-product #content .hentry,
 .tax-brand #content .hentry,
-.tax-dietarypref #content .hentry{
+.tax-feature #content .hentry{
 	width:33%;
 	margin:0 ;
 	padding:0;
@@ -1315,9 +1315,9 @@ RSS Feed Image
 	text-align:center;
 	clear:none;
 }
-.post-type-archive-product .thumbnail,
-.tax-brand .thumbnail,
-.tax-dietarypref .thumbnail{
+.post-type-archive-product .wp-post-image,
+.tax-brand .wp-post-image,
+.tax-feature .wp-post-image{
 	width:auto;
 	margin:0;
 	padding:0;
@@ -1325,14 +1325,14 @@ RSS Feed Image
 }
 .post-type-archive-product .hentry h2,
 .tax-brand .hentry h2,
-.tax-dietarypref .hentry h2{
+.tax-feature .hentry h2{
 	margin:10px;
 	font-style:normal;	
 	font-size:1.7em;
 }
 .post-type-archive-product p,
 .tax-brand p,
-.tax-dietarypref p{
+.tax-feature p{
 	margin:.25em;	
 }
 .product-info{
@@ -1413,12 +1413,12 @@ body.single-product .post-meta span{
 .post-type-archive-product .entry-content,
 .single-product .entry-content,
 .tax-brand .entry-content,
-.tax-dietarypref .entry-content{
+.tax-feature .entry-content{
 	margin-left:0;
 }
 .post-type-archive-product .thumb,
 .tax-brand .thumb,
-.tax-dietarypref .thumb{
+.tax-feature .thumb{
 	float:none;
 	margin:0;
 }
@@ -1569,13 +1569,13 @@ body.single-product .post-meta span{
 		font-size:2.6875em;
 	}
 	.tax-brand #content,
-	.tax-dietarypref #content,
+	.tax-feature #content,
 	.post-type-archive-product #content{
 		width:71%;
 		float:right;
 	}
 	.tax-brand #sidebar,
-	.tax-dietarypref #sidebar,
+	.tax-feature #sidebar,
 	.post-type-archive-product #sidebar{
 		width:29%;
 		max-width:300px;

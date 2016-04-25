@@ -15,20 +15,9 @@
 				<?php the_title(); ?> 
 			</h2>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 			<?php the_terms( $post->ID, 'brand', '<h3>Brand: ', ', ' , '</h3>' ); ?>
 
 			<?php the_post_thumbnail('large', array( 'class' => 'product-image' )); ?>
-=======
-=======
->>>>>>> origin/master
-			<?php the_terms($post->ID, 'dietarypref', '<h3>Preference:', ', ', '</h3>'  ); ?>
-			<?php the_terms($post->ID, 'brand', '<h3>Brand:', ', ', '</h3>'  ); ?>
-
-
-			<?php the_post_thumbnail('large', array( 'class' => 'product-image')); //don't forget to activate in functions ?>
->>>>>>> origin/master
 			<div class="entry-content">
 				<?php the_meta(); //list of all custom fields (price & size) ?>
 
