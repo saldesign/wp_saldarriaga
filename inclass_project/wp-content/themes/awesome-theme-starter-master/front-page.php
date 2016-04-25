@@ -4,23 +4,29 @@
 	<?php //THE LOOP
 		if( have_posts() ): ?>
 		<?php while( have_posts() ): the_post(); ?>
-			<?php the_post_thumbnail('big-banner' ); ?>
 
-		<article <?php post_class('cf' ); ?>id="post-<?php the_ID(); ?>" >
+		<?php the_post_thumbnail('big-banner'); //don't forget to activate in functions ?>
+		
+		<article id="post-<?php the_ID(); ?>" 
+		<?php post_class('cf clearfix'); ?>>	
+
 			<h2 class="entry-title"> 
 				<a href="<?php the_permalink(); ?>"> 
 					<?php the_title(); ?> 
 				</a>
 			</h2>
+			
 			<div class="entry-content">
-				<?php //if viewing single/page show full content
-						//else show excerpt
-				if(is_singular( )){
-					the_content( );
-				}else{	 
+				<?php 
+				//if viewing a single post or page, show full content. otherwise, show the short content (excerpt)
+				if( is_singular() ){
+					the_content();
+				}else{
 					the_excerpt();
-				} ?>
-			</div>		
+				}
+				 ?>
+			</div>
+					
 		</article><!-- end post -->
 
 		<?php endwhile; ?>
@@ -33,5 +39,5 @@
 
 </main><!-- end #content -->
 
-<?php get_sidebar('frontpage'); //include sidebar.php ?>
+<?php get_sidebar( 'frontpage' ); //include sidebar-frontpage.php ?>
 <?php get_footer(); //include footer.php ?>

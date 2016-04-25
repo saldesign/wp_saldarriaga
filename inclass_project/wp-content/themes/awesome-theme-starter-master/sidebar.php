@@ -1,6 +1,9 @@
 <aside id="sidebar"> 
-		<?php //if there are widgets set in admin panel show them, else show the fake widgets
-		if(!dynamic_sidebar('blog-sidebar')){ ?>
+
+	<?php 
+	// if there are widgets in the blog sidebar, show them. 
+	// otherwise show some fake widgets
+	if( ! dynamic_sidebar('blog-sidebar') ){ ?>	
 		<section id="categories" class="widget">
 			<h3 class="widget-title">Popular Categories </h3>
 			<ul>
@@ -11,7 +14,7 @@
 					'show_count' => 1,
 					'orderby' => 'count',
 					'order' => 'DESC',
-					'number' => 10
+					'number' => 10,
 				) ); ?>           
 			</ul>
 		</section>
@@ -44,5 +47,5 @@
 			<?php endif; ?>
 			</ul>
 		</section>
-	<?php } //end of fallback "Widgets"?>
-	</aside><!-- end #sidebar -->
+	<?php } //end of fallback "widgets" ?>
+</aside><!-- end #sidebar -->

@@ -2,32 +2,36 @@
 /*
 Template Name: Page with no sidebar
 
-custom page template
-apply it to any page in the admin panel by choosing it from the dropdown
+This is a custom page template. 
+You apply it to any page in the admin panel by choosing it from the dropdown
 */
-get_header(); //include header.php 
-?>
+
+get_header(); //include header.php ?>
+
 <main id="content">
 	<?php //THE LOOP
 		if( have_posts() ): ?>
 		<?php while( have_posts() ): the_post(); ?>
 
-		<article <?php post_class('cf' ); ?>id="post-<?php the_ID(); ?>" >
+		<article id="post-<?php the_ID(); ?>" 
+		<?php post_class('cf clearfix'); ?>>
 			<h2 class="entry-title"> 
 				<a href="<?php the_permalink(); ?>"> 
 					<?php the_title(); ?> 
 				</a>
 			</h2>
-			<?php the_post_thumbnail('large' ); ?>
+			<?php the_post_thumbnail('large'); //don't forget to activate in functions ?>
 			<div class="entry-content">
-				<?php //if viewing single/page show full content
-						//else show excerpt
-				if(is_singular( )){
-					the_content( );
-				}else{	 
+				<?php 
+				//if viewing a single post or page, show full content. otherwise, show the short content (excerpt)
+				if( is_singular() ){
+					the_content();
+				}else{
 					the_excerpt();
-				} ?>
-			</div>		
+				}
+				 ?>
+			</div>
+					
 		</article><!-- end post -->
 
 		<?php endwhile; ?>

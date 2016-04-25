@@ -1,66 +1,76 @@
 <?php 
-//Use this file to activate or create any functionality that's related to look & Feel
-//Wordpress will automatically load it before all template files
+/*
+use this file to activate or create any functionality 
+that is related to look & feel. 
+WordPress will automatically load it before all template files
+ */
 
 //activate "sleeping features"
-	// turns on featured image
-	add_theme_support('post-thumbnails');
+add_theme_support('post-thumbnails');
 
-	// allows you to personalize styles for post types
-	add_theme_support('post-formats', array('quote', 'image', 'gallery', 'video', 'link', 'audio', 'chat', 'status', 'aside',  ) );
+//allows you to style different kinds of posts differently
+add_theme_support('post-formats', array('quote', 'image', 'gallery', 'video', 'link', 
+					'audio', 'chat', 'status', 'aside' ));
 
-	//background customizer
-	add_theme_support('custom-background' );
+add_theme_support( 'custom-background' );
 
-	//logo uploader
-	add_theme_support('custom-logo', array(
-		'height' => 80,
-		'width' => 324,
-		'flex-height' => false,
-		'flex-width' => false, ) );
-	//rss feed support
-	add_theme_support('automatic-feed-links' );
+add_theme_support( 'custom-logo', array(
+					'height' => 80,
+					'width' => 324,
+					'flex-height' => false,
+					'flex-width'  => false,
+					) );
 
-	//html5 support
-	add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
+//adds RSS <link> header tags everywhere!
+add_theme_support( 'automatic-feed-links' );
 
-	//dont forget to remove the <title> tag from header.php
-	add_theme_support('title-tag' );
+//uses modern markup in WP generated forms and galleries
+add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 
+									'gallery', 'caption' ));
 
-	//special image size for the front page banner
-	//						name 			  w    h   crop?
-	add_image_size( 'big-banner', 1050, 300, true );
+//makes search-engine friendly, unique titles on every page. 
+//don't forget to remove the <title> tag from header.php
+add_theme_support( 'title-tag' );
 
 
 /**
- * Make Excerpts Better!
- *	Change default length and [...]
+ * special image size for the front page banner
+ *	don't forget to use the plugin "force regenerate thumbnails"
+ *	after creating or changing image sizes. 
+ *
+ *					name 		w 	h 	 crop?
+ */
+add_image_size( 'big-banner', 1050, 300, true );
+
+/**
+ * Make excerpts better!
+ * Change the default length 
  */
 function awesome_ex_length(){
-	return 50;//words
+	return 70; //words
 }
-add_filter('excerpt_length', 'awesome_ex_length' );
+add_filter( 'excerpt_length', 'awesome_ex_length' );
+
 /**
  * fix the [...]
- *	@param string $dots the original [...]
- *	@return string 		nice HTML button that links to the single post
+ * @param  string $dots the original [...]
+ * @return string       nice HTML button that links to the single post
  */
-function awesome_readmore($dots){
-	return '&hellip; <a class="readmore" href="' . get_permalink() . '"> Read More</a>';
+function awesome_readmore( $dots ){
+	return $dots . ' <a href="' . get_permalink() . '" class="readmore">Keep Reading</a>';
 }
-add_filter('excerpt_more', 'awesome_readmore' );
+add_filter( 'excerpt_more', 'awesome_readmore' );
 
 
 /**
- * Make threaded comment replies more user friendly
+ * Make threaded comment replies more user friendly with JS
  */
 function awesome_comment_ux(){
-	if(is_singular() && get_option('thread_comments') && comments_open()){
-		wp_enqueue_script('comment-reply' );
+	if( is_singular() && get_option( 'thread_comments' ) && comments_open() ){
+		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action('wp_enqueue_scripts', 'awesome_comment_ux' );
-
+add_action( 'wp_enqueue_scripts', 'awesome_comment_ux'  );
 
 /**
  * Register two Menu Locations
@@ -106,43 +116,44 @@ function awesome_pagination(){
 /**
  * Create widget areas (dynamic sidebars)
  */
-add_action('widgets_init', 'awesome_widget_areas');
+add_action( 'widgets_init', 'awesome_widget_areas' );
 function awesome_widget_areas(){
-	register_sidebar( array(
-		'name' => 'Blog Sidebar',
-		'id' => 'blog-sidebar',
-		'description' => 'Appears alongise blog posts and archives',
-		'before_widget' => '<section id="%1$s" class="widget %1$s">',
-		'after_widget' => '</section>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>'
+	register_sidebar(array(
+		'name' 			=> 'Home Area',
+		'id' 			=> 'home-area',
+		'description' 	=> 'Appears on the front page of the site',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title' 	=> '</h3>',
 	));
-	register_sidebar( array(
-		'name' => 'Footer Area',
-		'id' => 'footer-area',
-		'description' => 'Appears at the bottom of the blog',
-		'before_widget' => '<section id="%1$s" class="widget %1$s">',
-		'after_widget' => '</section>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>'
+	register_sidebar(array(
+		'name' 			=> 'Blog Sidebar',
+		'id' 			=> 'blog-sidebar',
+		'description' 	=> 'Appears alongside blog posts and archives',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title' 	=> '</h3>',
 	));
-	register_sidebar( array(
-		'name' => 'Home Area',
-		'id' => 'home-area',
-		'description' => 'Appears on the front page',
-		'before_widget' => '<section id="%1$s" class="widget %1$s">',
-		'after_widget' => '</section>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>'
+	register_sidebar(array(
+		'name' 			=> 'Page Sidebar',
+		'id' 			=> 'page-sidebar',
+		'description' 	=> 'Appears alongside static pages',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title' 	=> '</h3>',
 	));
-	register_sidebar( array(
-		'name' => 'Image Bar',
-		'id' => 'images',
-		'description' => 'a bar of three images',
-		'before_widget' => '<section id="%1$s" class="widget %1$s">',
-		'after_widget' => '</section>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>'
+	register_sidebar(array(
+		'name' 			=> 'Footer Area',
+		'id' 			=> 'footer-area',
+		'description' 	=> 'Appears at the bottom of every screen',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title' 	=> '</h3>',
 	));
+	
 }
-//no close
+//no close PHP

@@ -11,7 +11,6 @@ Tags:gray, two-columns
 ------------------------------
 	Table of Contents
 ------------------------------
-==Clear Fix
 ==Basic Links
 ==Layout blocks
 ==Navigation Top Bar
@@ -20,21 +19,20 @@ Tags:gray, two-columns
 ==Breadcrumbs
 ==pagination
 ==Search Form
-==comment form
+==comment form	
 ==comments list
 ==sidebar and widget typography and layout
 ==post typography 
-==blockquotes 
+==blockquotes
 ==Gallery
-==Forms
+==Forms!
 ==tables
 ==Lists
 ==misc tags
 ==Calendar Widget
 ==custom post type - products 
-==Latest Products   
+==Latest Products  
 ==Contact info options box
-==Templates
 ==Media Queries
 */
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700);
@@ -47,18 +45,6 @@ body{
 a{
 	color:#679EA5;
 }
-/* 
-==Clear Fix
-*/
-/**
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    contenteditable attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that are clearfixed.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
 .cf:before,
 .cf:after {
     content: " "; /* 1 */
@@ -68,15 +54,9 @@ a{
 .cf:after {
     clear: both;
 }
-
-/**
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
 .cf {
     *zoom: 1;
 }
-
 /* 
 ==Basic Links
 */
@@ -99,9 +79,12 @@ body {
 	font-size:100%;
 	line-height:1.125em; /* 16×1.125=18 */
 	font-family: 'Source Sans Pro', Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	
+	
+	
 }
 #wrapper{
-	background-color: #565552;
+	background-color: rgba(0,0,0,.5);
 	margin:2% auto;
 	padding:0 2%;
 	max-width:70em;}
@@ -119,7 +102,7 @@ footer#colophon {
 */
 header[role=banner]{
 	position:relative;
-	padding-top: 16px;
+	padding-top:122px;
 }
 header.top-bar {
 	font-size: 1.2em;
@@ -134,7 +117,9 @@ h1.site-name{
 h1.site-name a{
 	display: block;
 	width:100%;
-	line-height: 4rem;
+	min-height:80px;
+	height: 100%;
+	line-height:80px;
 	font-size:1.8em;
 	font-weight: 200;
 	color: #ededed;
@@ -221,7 +206,7 @@ header[role=banner] .search-form,
 header[role=banner] .searchform
 {
 	position: absolute;
-	top: 4em;
+	top:3em;
 	right:0;
 	width: 30%;
 	min-width:300px;
@@ -786,6 +771,21 @@ footer#colophon .widget ul li {
 	float:right;
 	margin-left:1em;
 }
+/*error 404*/
+.error404 #content{
+font-size:120%;
+}
+.error404 p{
+	margin:1em 0;
+}
+.error404 #content #s{
+	width:80%;
+	display: inline-block;
+}
+.error404 #content #searchsubmit{
+	width:20%;
+	display: inline-block;
+}
 /*
 TODO: Add required WP styles
 http://codex.wordpress.org/CSS
@@ -941,8 +941,10 @@ blockquote:before{
 .format-quote .hentry {
 	width:100%;
 }
-.format-video {
-	background-color: darkslategray;
+
+.format-video{
+	background-color: tomato;
+	padding:0 1em 1em;
 }
 /* 
 ==Gallery
@@ -1136,6 +1138,35 @@ dt {
 /*
 ==misc tags
 */
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
 abbr,
 acronym {
 	border-bottom:dotted 1px #CCC;
@@ -1249,19 +1280,19 @@ RSS Feed Image
 	margin-left:1em;
 }
 .tax-brand #sidebar .widget,
-.tax-feature #sidebar .widget,
+.tax-dietarypref #sidebar .widget,
 .post-type-archive-product #sidebar .widget{
 	margin: 0 5% 7%  0;
 }
 .tax-brand #sidebar .widget-title,
-.tax-feature #sidebar .widget-title,
+.tax-dietarypref #sidebar .widget-title,
 .post-type-archive-product #sidebar .widget-title{
 	padding-top:10px;
 	margin-bottom: 0;
 	font-size:1.2em;
 }
 .tax-brand #sidebar .widget-title:before,
-.tax-feature #sidebar .widget-title:before,
+.tax-dietarypref #sidebar .widget-title:before,
 .post-type-archive-product #sidebar .widget-title:before{
 	display: none;
 }
@@ -1276,7 +1307,7 @@ RSS Feed Image
 }
 .post-type-archive-product #content .hentry,
 .tax-brand #content .hentry,
-.tax-feature #content .hentry{
+.tax-dietarypref #content .hentry{
 	width:33%;
 	margin:0 ;
 	padding:0;
@@ -1284,9 +1315,9 @@ RSS Feed Image
 	text-align:center;
 	clear:none;
 }
-.post-type-archive-product .wp-post-image,
-.tax-brand .wp-post-image,
-.tax-feature .wp-post-image{
+.post-type-archive-product .thumbnail,
+.tax-brand .thumbnail,
+.tax-dietarypref .thumbnail{
 	width:auto;
 	margin:0;
 	padding:0;
@@ -1294,14 +1325,14 @@ RSS Feed Image
 }
 .post-type-archive-product .hentry h2,
 .tax-brand .hentry h2,
-.tax-feature .hentry h2{
+.tax-dietarypref .hentry h2{
 	margin:10px;
 	font-style:normal;	
 	font-size:1.7em;
 }
 .post-type-archive-product p,
 .tax-brand p,
-.tax-feature p{
+.tax-dietarypref p{
 	margin:.25em;	
 }
 .product-info{
@@ -1382,12 +1413,12 @@ body.single-product .post-meta span{
 .post-type-archive-product .entry-content,
 .single-product .entry-content,
 .tax-brand .entry-content,
-.tax-feature .entry-content{
+.tax-dietarypref .entry-content{
 	margin-left:0;
 }
 .post-type-archive-product .thumb,
 .tax-brand .thumb,
-.tax-feature .thumb{
+.tax-dietarypref .thumb{
 	float:none;
 	margin:0;
 }
@@ -1449,42 +1480,17 @@ body.single-product .post-meta span{
 .contact-info{
 	display: none;
 }
-/*==Templates*/
-body.error404 {
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#565552+0,dd6259+100 */
-background: #565552; /* Old browsers */
-background: -moz-linear-gradient(top,  #565552 0%, #dd6259 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #565552 0%,#dd6259 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #565552 0%,#dd6259 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#565552', endColorstr='#dd6259',GradientType=0 ); /* IE6-9 */
-}
-div.e404{
-	text-align: center;
-	border:solid 1px salmon;
-	border-radius: 5px;
-	width: 100%;
-	padding: 1rem;
-	margin-bottom: 3rem;
-	background-color: rgba(255,255,255,.3);
-}
-.error404 h2{
-	font-size: 2rem;
-	line-height: 3rem;
-}
-div.e404 img{
-	max-width: 10rem;
-}
 /*==Media Queries*/
 @media screen and (min-width: 850px) {
 	h1.site-name{
 		width:31%;
+		float:left;
 	}
 	h1.site-name{
 		text-align: center;	
 		background-color:#696763;
-		-webkit-border-radius: 8px 8px 0 0;    
-		margin-bottom: 1.5rem;
-	   border-radius: 8px 8px 0 0;
+		-webkit-border-radius:  8px 0 0 8px ;    
+		border-radius: 8px 0 0 8px ;
 		min-height:80px;
 		overflow:hidden;
 		white-space: nowrap;
@@ -1496,8 +1502,10 @@ div.e404 img{
 		background-color: #dd6259;
 		font-size:2em;
 		line-height: 80px;
-		min-height: 16px;
+		min-height: 80px;
 		min-width: 30px;
+		float:left;
+		margin-right:3px;
 	}
 	.contact-info{
 		display: block;
@@ -1514,6 +1522,8 @@ div.e404 img{
 		font-weight: bold;
 	}
 	header .top-bar nav{
+		width:69%;
+		float:left;
 		text-align: right;-webkit-border-radius: 0 8px 8px 0;    
 		border-radius: 0 8px 8px 0;
 		background-color: rgba(0,0,0,.1);
@@ -1531,19 +1541,22 @@ div.e404 img{
 		width:66.5%;
 		clear: both;
 		word-wrap:break-word;
-		float: left;
+		float:left;
 	}
 	#sidebar {
 		width:31%;
-		float: right;
+		float:right;
 	}
-/*	special case - make widgets go full width on the static home pages
-	home is the body class on the front page*/
+	/*
+	special case - make the widgets go full width on the static home page
+	.home is the body class on the front page
+	*/
 	.home #content,
 	.home #sidebar{
-		width: 100%;
-		float: none;
+		width:100%;
+		float:none;
 	}
+
 	.page-template-template-no-sidebar-php #content,
 	.page-template-template-sitemap-php #content{
 		width:100%;
@@ -1556,13 +1569,13 @@ div.e404 img{
 		font-size:2.6875em;
 	}
 	.tax-brand #content,
-	.tax-feature #content,
+	.tax-dietarypref #content,
 	.post-type-archive-product #content{
 		width:71%;
 		float:right;
 	}
 	.tax-brand #sidebar,
-	.tax-feature #sidebar,
+	.tax-dietarypref #sidebar,
 	.post-type-archive-product #sidebar{
 		width:29%;
 		max-width:300px;
