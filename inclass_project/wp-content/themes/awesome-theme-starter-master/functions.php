@@ -156,4 +156,50 @@ function awesome_widget_areas(){
 	));
 	
 }
+/**
+ * @param  display a list of any number of products
+ * @param  integer $number the number of products to show
+ * @param  string $title the title above the list
+ * @return 
+ */
+function awesome_products($number = 6, $title){
+	//custom query to get up to 6 products, newest first
+			$product_query = new WP_Query( array(
+					'post_type' 		=> 'product', //custom post type we registered
+					'posts_per_page' 	=> $number,
+				));
+			//custom loop
+			if( $product_query-> have_posts()){
+			 ?>
+			<h2><?php echo $title; ?></h2>
+			<ul class="latest-products">
+			<?php while( $product_query-> have_posts()){
+						$product_query->the_post(); ?>
+				<li>
+					<a href="<?php the_permalink(); ?>">
+						<?php the_post_thumbnail('thumbnail' ); ?>
+						<div class="product-info">
+							<h3><?php the_title(); ?></h3>
+							<p><?php the_excerpt(); ?></p>
+						</div>
+					</a>
+				</li>
+			<?php } ?>
+			</ul>
+			<?php 
+			}else{
+				echo 'No Products Found';
+			}
+				//clean up the $post object
+				wp_reset_postdata();
+				//end of custom product query & loop
+}
+add_action('pre_get_posts', 'awesome_exclude_category');
+function awesome_exclude_category($query){
+	//make sure we're in the blog
+	if($query->is_home()){
+		$query ->set('category__not_in', array(1) );
+	}
+}
+
 //no close PHP

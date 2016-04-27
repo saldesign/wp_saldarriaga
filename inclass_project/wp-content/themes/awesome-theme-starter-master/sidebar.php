@@ -1,5 +1,9 @@
 <aside id="sidebar"> 
 
+<section class="widget">
+	<?php awesome_products(3, 'Look at this Cool Stuff!'); //custom function to show products ?>
+</section>
+
 	<?php 
 	// if there are widgets in the blog sidebar, show them. 
 	// otherwise show some fake widgets
