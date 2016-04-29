@@ -380,3 +380,25 @@ taxonomy						terms
 theme heirarchy diagaram
 	first file wordpress looks for is home.php
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

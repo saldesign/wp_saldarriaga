@@ -194,12 +194,19 @@ function awesome_products($number = 6, $title){
 				wp_reset_postdata();
 				//end of custom product query & loop
 }
-add_action('pre_get_posts', 'awesome_exclude_category');
+
+//example of how to alter the default loop
+//this will hide posts in a category based on the number inputted in the array
+
+// add_action('pre_get_posts', 'awesome_exclude_category');
 function awesome_exclude_category($query){
 	//make sure we're in the blog
 	if($query->is_home()){
 		$query ->set('category__not_in', array(1) );
 	}
 }
+
+
+
 
 //no close PHP

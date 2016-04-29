@@ -1,0 +1,118 @@
+body,html{
+	background-color: lightsteelblue;
+}
+
+/*logo*/
+.login h1 a{
+	background: url('mountain.png') no-repeat center center;
+	background-size: auto;
+	width: 150px;
+	height: 150px;
+}
+
+/*button*/
+.login #wp-submit{
+	display: inline-block;
+	width: 100%;
+	margin: 1rem 0;
+	padding:.5rem 0;
+	border:none;
+	height: auto;
+	border:none;
+	text-shadow:none;
+	box-shadow: none;
+}
+.login #wp-submit:hover,
+.login #wp-submit:focus{
+	background-color: sandybrown;
+}
+
+/*Peeky Placeholders*/
+
+form#loginform {
+  display: table;
+  margin: 40px auto;
+}
+form#loginform label {
+  position: relative;
+  display: block;
+}
+form#loginform label input {
+  font: 18px Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  display: block;
+  border: none;
+  padding: 20px;
+  width: 300px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  outline: none;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+form#loginform label input::-webkit-input-placeholder {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  color: #999;
+  font: 18px Helvetica, Arial, sans-serif;
+}
+form#loginform label input::-moz-placeholder {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  color: #999;
+  font: 18px Helvetica, Arial, sans-serif;
+}
+form#loginform label input:-ms-input-placeholder {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  color: #999;
+  font: 18px Helvetica, Arial, sans-serif;
+}
+form#loginform label input::placeholder {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  color: #999;
+  font: 18px Helvetica, Arial, sans-serif;
+}
+form#loginform label input:focus, form#loginform label input.populated {
+  padding-top: 28px;
+  padding-bottom: 12px;
+}
+form#loginform label input:focus::-webkit-input-placeholder, form#loginform label input.populated::-webkit-input-placeholder {
+  color: transparent;
+}
+form#loginform label input:focus::-moz-placeholder, form#loginform label input.populated::-moz-placeholder {
+  color: transparent;
+}
+form#loginform label input:focus:-ms-input-placeholder, form#loginform label input.populated:-ms-input-placeholder {
+  color: transparent;
+}
+form#loginform label input:focus::placeholder, form#loginform label input.populated::placeholder {
+  color: transparent;
+}
+form#loginform label input:focus + span, form#loginform label input.populated + span {
+  opacity: 1;
+  top: 10px;
+}
+form#loginform label span {
+  color: #35dc9b;
+  font: 13px Helvetica, Arial, sans-serif;
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  opacity: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+form#loginform input[type="submit"] {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  font: 18px Helvetica, Arial, sans-serif;
+  border: none;
+  background: #1aaf75;
+  color: #fff;
+  padding: 16px 40px;
+}
+form#loginform input[type="submit"]:hover {
+  background: #109f67;
+}
