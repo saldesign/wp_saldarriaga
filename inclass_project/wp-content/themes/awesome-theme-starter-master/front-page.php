@@ -42,11 +42,11 @@
 
 	<?php endif;  //end THE LOOP ?>
 
-	
-	<section class="featured-content">
-	<?php awesome_products(6, 'Buy Our Shnitzle'); //custom function to show products ?>
-	</section>
-
+	<?php if(get_theme_mod('awesome_show_products' )){ ?>
+		<section class="featured-content">
+		<?php awesome_products(6, 'Buy Our Shnitzle'); //custom function to show products ?>
+		</section>
+	<?php } ?>
 </main><!-- end #content -->
 
 <?php get_sidebar( 'frontpage' ); //include sidebar-frontpage.php ?>

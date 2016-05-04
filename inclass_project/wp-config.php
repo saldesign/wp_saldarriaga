@@ -18,15 +18,26 @@
  * @package WordPress
  */
 
+//check to see if we are viewing local or live site
+if( $_SERVER['HTTP_HOST'] == 'localhost'){
+	define('DB_NAME', 'christian_wp');
+	define('DB_USER', 'christian_wp');
+	define('DB_PASSWORD', 'VpNJVCRw9VsVSxC3');
+}else{
+	define('DB_NAME', 'salamomo_twentysixteen-child');
+	define('DB_USER', 'salamomo_class');
+	define('DB_PASSWORD', 'CSKlingon91');
+}
+
+
+
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'christian_wp');
 
 /** MySQL database username */
-define('DB_USER', 'christian_wp');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'VpNJVCRw9VsVSxC3');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');

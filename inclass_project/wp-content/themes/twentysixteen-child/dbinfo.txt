@@ -1,0 +1,2 @@
+db name: salamomo_twentysixteen-child
+username: salamomo_class
